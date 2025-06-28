@@ -1,0 +1,111 @@
+name: Azure‑Framework Full Suite w/ MySQL
+description: Deploy Az‑Framework + modules with MySQL, oxmysql & ox_lib, structured under [framework].
+$onesync: "on"
+
+resources:
+  # 1️⃣ First load external dependencies
+  - download_url:
+      url: https://github.com/overextended/oxmysql/releases/download/v2.13.0/oxmysql.zip
+    extract_to: resources/oxmysql
+  - download_url:
+      url: https://github.com/overextended/ox_lib/releases/download/v3.30.6/ox_lib.zip
+    extract_to: resources/ox_lib
+
+  # 2️⃣ Core framework and modules under [framework] folder
+  - download_github:
+      repo: Azure-Framework/Az-Framework
+      ref: main
+    extract_to: resources/[framework]/Az-Framework
+  - download_github:
+      repo: Azure-Framework/Az-Banking
+      ref: main
+    extract_to: resources/[framework]/Az-Banking
+  - download_github:
+      repo: Azure-Framework/Az-Admin
+      ref: main
+    extract_to: resources/[framework]/Az-Admin
+  - download_github:
+      repo: Azure-Framework/Az-Levels
+      ref: main
+    extract_to: resources/[framework]/Az-Levels
+  - download_github:
+      repo: Azure-Framework/Az-PoliceMenu
+      ref: main
+    extract_to: resources/[framework]/Az-PoliceMenu
+  - download_github:
+      repo: Azure-Framework/Az-Jailing
+      ref: main
+    extract_to: resources/[framework]/Az-Jailing
+  - download_github:
+      repo: Azure-Framework/Az-CoffeeJob
+      ref: main
+    extract_to: resources/[framework]/Az-CoffeeJob
+  - download_github:
+      repo: Azure-Framework/Az-DrugTraffic
+      ref: main
+    extract_to: resources/[framework]/Az-DrugTraffic
+  - download_github:
+      repo: Azure-Framework/Az-GarbageJob
+      ref: main
+    extract_to: resources/[framework]/Az-GarbageJob
+  - download_github:
+      repo: Azure-Framework/Az-LogJob
+      ref: main
+    extract_to: resources/[framework]/Az-LogJob
+  - download_github:
+      repo: Azure-Framework/Az-Amazon
+      ref: main
+    extract_to: resources/[framework]/Az-Amazon
+
+waste_time: 10
+
+# ✅ Database import from Az-Framework folder
+database:
+  init_file: resources/[framework]/Az-Framework/db/schema.sql
+
+server.cfg:
+  content: |
+    ####################################################
+    #      ____  _   _ _   _ _____ _   _ _     _      #
+    #     |  _ \| | | | \ | |_   _| | | | |   | |     #
+    #     | |_) | | | |  \| | | | | |_| | |   | |     #
+    #     |  _ <| | | | . ` | | | |  _  | |   | |     #
+    #     | |_) | |_| | |\  |_| |_| | | | |___| |___  #
+    #     |____/ \___/|_| \_|_____|_| |_|_____|_____| #
+    #             Azure Framework Server               #
+    ####################################################
+    # 🎯 Discord: https://discord.gg/tBg2U6CTHE
+
+    ####   Network & License   ####
+    endpoint_add_tcp "{{serverEndpoints}}"
+    endpoint_add_udp "{{serverEndpoints}}"
+    sv_licenseKey "{{svLicense}}"
+    sv_maxclients {{maxClients}}
+    onesync on
+
+    ####   Admin Permissions   ####
+    add_ace group.admin command allow
+    add_principal identifier.steam:{{addPrincipalsMaster}} group.admin
+
+    ####   Dependencies (must start first)   ####
+    start oxmysql
+    start ox_lib
+
+    ####   Azure‑Framework Core & Modules   ####
+    start Az-Framework
+    start Az-Banking
+    start Az-Admin
+    start Az-Levels
+    start Az-PoliceMenu
+    start Az-Jailing
+    start Az-CoffeeJob
+    start Az-DrugTraffic
+    start Az-GarbageJob
+    start Az-LogJob
+    start Az-Amazon
+
+    ####   Info & Banner   ####
+    sv_banner "Azure‑Framework | Join Discord: https://discord.gg/tBg2U6CTHE"
+    echo "✅ Azure‑Framework loaded successfully!"
+
+    ####   Custom Settings Can Go Below   ####
