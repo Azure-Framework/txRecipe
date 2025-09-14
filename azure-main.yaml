@@ -12,21 +12,22 @@ tasks:
   ############################################################
 
   # 🌐 Default CFX Resources
-  # Download default CFX resources
-  - action: download_github
-    src: https://github.com/citizenfx/cfx-server-data
-    ref: master
-    subpath: resources
+  - action: download_file
+    url: https://github.com/citizenfx/cfx-server-data/archive/refs/heads/master.zip
+    path: ./tmp/cfx-server-data.zip
+  - action: unzip
+    src: ./tmp/cfx-server-data.zip
     dest: ./resources/[default]
 
-
   # 🎤 pma-voice (Voice System)
-  - action: download_github
-    src: https://github.com/AvarianKnight/pma-voice
-    ref: main
+  - action: download_file
+    url: https://github.com/AvarianKnight/pma-voice/archive/refs/heads/main.zip
+    path: ./tmp/pma-voice.zip
+  - action: unzip
+    src: ./tmp/pma-voice.zip
     dest: ./resources/[dependencies]/pma-voice
 
-  # Download ox_lib
+  # 🔧 ox_lib (Utility Library)
   - action: download_file
     url: https://github.com/overextended/ox_lib/releases/latest/download/ox_lib.zip
     path: ./tmp/ox_lib.zip
@@ -34,7 +35,7 @@ tasks:
     src: ./tmp/ox_lib.zip
     dest: ./resources/[dependencies]
 
-  # Download oxmysql
+  # 💾 oxmysql (Database Wrapper)
   - action: download_file
     url: https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip
     path: ./tmp/oxmysql.zip
@@ -42,7 +43,7 @@ tasks:
     src: ./tmp/oxmysql.zip
     dest: ./resources/[dependencies]
 
-  # Download ox_target
+  # 🎯 ox_target (Targeting System)
   - action: download_file
     url: https://github.com/overextended/ox_target/releases/latest/download/ox_target.zip
     path: ./tmp/ox_target.zip
@@ -52,91 +53,115 @@ tasks:
 
 
   ############################################################
-  # 🌀 Azure Framework Core
+  # 🌀 Azure Framework Core (NO ND_CORE)
   ############################################################
 
-  # 🏛️ Azure-Framework (Core)
+  # 🏛️ Azure-Framework (fetch the Azure-Framework folder directly)
   - action: download_github
     src: https://github.com/Azure-Framework/Azure-Framework
     ref: main
     subpath: Azure-Framework
-    dest: ./resources/
+    dest: ./resources/Azure-Framework
 
 
   ############################################################
   # ⚡ Azure Framework Resources
   ############################################################
 
-  # 🔑 Admin System
-  - action: download_github
-    src: https://github.com/Azure-Framework/Az-Admin
-    ref: main
+  # 🔑 Az-Admin (Admin System)
+  - action: download_file
+    url: https://github.com/Azure-Framework/Az-Admin/archive/refs/heads/main.zip
+    path: ./tmp/Az-Admin.zip
+  - action: unzip
+    src: ./tmp/Az-Admin.zip
     dest: ./resources/[framework]/Az-Admin
 
-  # 👤 Character UI
-  - action: download_github
-    src: https://github.com/Azure-Framework/Az-CharacterUI
-    ref: main
+  # 👤 Az-CharacterUI (Character UI)
+  - action: download_file
+    url: https://github.com/Azure-Framework/Az-CharacterUI/archive/refs/heads/main.zip
+    path: ./tmp/Az-CharacterUI.zip
+  - action: unzip
+    src: ./tmp/Az-CharacterUI.zip
     dest: ./resources/[framework]/Az-CharacterUI
 
-  # 💳 Banking System
-  - action: download_github
-    src: https://github.com/Azure-Framework/Az-Banking
-    ref: main
+  # 💳 Az-Banking (Banking System)
+  - action: download_file
+    url: https://github.com/Azure-Framework/Az-Banking/archive/refs/heads/main.zip
+    path: ./tmp/Az-Banking.zip
+  - action: unzip
+    src: ./tmp/Az-Banking.zip
     dest: ./resources/[framework]/Az-Banking
 
-  # 🚔 Police Menu
-  - action: download_github
-    src: https://github.com/Azure-Framework/Az-PoliceMenu
-    ref: main
+  # 🚔 Az-PoliceMenu (Police Menu)
+  - action: download_file
+    url: https://github.com/Azure-Framework/Az-PoliceMenu/archive/refs/heads/main.zip
+    path: ./tmp/Az-PoliceMenu.zip
+  - action: unzip
+    src: ./tmp/Az-PoliceMenu.zip
     dest: ./resources/[framework]/Az-PoliceMenu
 
-  # 📦 Amazon Job
-  - action: download_github
-    src: https://github.com/Azure-Framework/Az-Amazon
-    ref: master
+  # 📦 Az-Amazon (Amazon Job)
+  - action: download_file
+    url: https://github.com/Azure-Framework/Az-Amazon/archive/refs/heads/master.zip
+    path: ./tmp/Az-Amazon.zip
+  - action: unzip
+    src: ./tmp/Az-Amazon.zip
     dest: ./resources/[framework]/Az-Amazon
 
-  # 📊 Job Logger
-  - action: download_github
-    src: https://github.com/Azure-Framework/Az-LogJob
-    ref: main
+  # 📊 Az-LogJob (Job Logger)
+  - action: download_file
+    url: https://github.com/Azure-Framework/Az-LogJob/archive/refs/heads/main.zip
+    path: ./tmp/Az-LogJob.zip
+  - action: unzip
+    src: ./tmp/Az-LogJob.zip
     dest: ./resources/[framework]/Az-LogJob
 
-  # 🗑️ Garbage Job
-  - action: download_github
-    src: https://github.com/Azure-Framework/Az-GarbageJob
-    ref: main
+  # 🗑️ Az-GarbageJob (Garbage Job)
+  - action: download_file
+    url: https://github.com/Azure-Framework/Az-GarbageJob/archive/refs/heads/main.zip
+    path: ./tmp/Az-GarbageJob.zip
+  - action: unzip
+    src: ./tmp/Az-GarbageJob.zip
     dest: ./resources/[framework]/Az-GarbageJob
 
-  # ☕ Coffee Job
-  - action: download_github
-    src: https://github.com/Azure-Framework/Az-CoffeeJob
-    ref: main
+  # ☕ Az-CoffeeJob (Coffee Job)
+  - action: download_file
+    url: https://github.com/Azure-Framework/Az-CoffeeJob/archive/refs/heads/main.zip
+    path: ./tmp/Az-CoffeeJob.zip
+  - action: unzip
+    src: ./tmp/Az-CoffeeJob.zip
     dest: ./resources/[framework]/Az-CoffeeJob
 
-  # 🚚 Drug Trafficking Job
-  - action: download_github
-    src: https://github.com/Azure-Framework/Az-DrugTraffic
-    ref: main
+  # 🚚 Az-DrugTraffic (Drug Trafficking Job)
+  - action: download_file
+    url: https://github.com/Azure-Framework/Az-DrugTraffic/archive/refs/heads/main.zip
+    path: ./tmp/Az-DrugTraffic.zip
+  - action: unzip
+    src: ./tmp/Az-DrugTraffic.zip
     dest: ./resources/[framework]/Az-DrugTraffic
 
-  # ⛓️ Jailing System
-  - action: download_github
-    src: https://github.com/Azure-Framework/Az-Jailing
-    ref: main
+  # ⛓️ Az-Jailing (Jailing System)
+  - action: download_file
+    url: https://github.com/Azure-Framework/Az-Jailing/archive/refs/heads/main.zip
+    path: ./tmp/Az-Jailing.zip
+  - action: unzip
+    src: ./tmp/Az-Jailing.zip
     dest: ./resources/[framework]/Az-Jailing
 
-  # 🚦 DMV System
-  - action: download_github
-    src: https://github.com/Azure-Framework/Az-DMV
-    ref: main
+  # 🚦 Az-DMV (DMV System)
+  - action: download_file
+    url: https://github.com/Azure-Framework/Az-DMV/archive/refs/heads/main.zip
+    path: ./tmp/Az-DMV.zip
+  - action: unzip
+    src: ./tmp/Az-DMV.zip
     dest: ./resources/[framework]/Az-DMV
 
-  # 🚓 5PD Integration
-  - action: download_github
-    src: https://github.com/Azure-Framework/Az-5PD
-    ref: main
+  # 🚓 Az-5PD (5PD Integration)
+  - action: download_file
+    url: https://github.com/Azure-Framework/Az-5PD/archive/refs/heads/main.zip
+    path: ./tmp/Az-5PD.zip
+  - action: unzip
+    src: ./tmp/Az-5PD.zip
     dest: ./resources/[framework]/Az-5PD
 
 
