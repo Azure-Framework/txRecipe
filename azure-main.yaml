@@ -27,13 +27,7 @@ tasks:
     src: ./tmp/pma-voice.zip
     dest: ./resources/[dependencies]/pma-voice
 
-  # 🔧 ox_lib (Utility Library)
-  - action: download_file
-    url: https://github.com/overextended/ox_lib/releases/latest/download/ox_lib.zip
-    path: ./tmp/ox_lib.zip
-  - action: unzip
-    src: ./tmp/ox_lib.zip
-    dest: ./resources/[dependencies]
+
 
   # 💾 oxmysql (Database Wrapper)
   - action: download_file
