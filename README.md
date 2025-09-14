@@ -28,7 +28,7 @@ This recipe includes 📦 **oxmysql**, **ox_lib**, all Azure modules, OneSync, a
 
 ## 🛠️ Setup Instructions
 
-1. Copy the recipe YAML (e.g. `azure-framework-recipe.yaml`).  
+1. Copy the recipe YAML (e.g. `azure-main.ymal`).  
 2. Paste into txAdmin’s **Custom Template** field.  
 3. Provide your MySQL credentials when prompted.  
 4. Proceed to **Run Recipe** – txAdmin handles downloading files, importing DB schema, and generating `server.cfg`.  
