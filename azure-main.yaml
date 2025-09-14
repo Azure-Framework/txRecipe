@@ -1,0 +1,144 @@
+$engine: 3
+$onesync: on
+$minFxVersion: 7290
+name: Azure Framework
+description: The official recipe for Azure Framework.
+author: Azure(TheStoicBear)
+
+tasks:
+
+  ############################################################
+  # 📦 Core Server Resources (Default + Dependencies)
+  ############################################################
+
+  # 🌐 Default CFX Resources
+  - action: download_github
+    src: https://github.com/citizenfx/cfx-server-data
+    ref: master
+    subpath: resources
+    dest: ./resources/[default]
+
+  # 🎤 pma-voice (Voice System)
+  - action: download_github
+    src: https://github.com/AvarianKnight/pma-voice
+    ref: main
+    dest: ./resources/[dependencies]/pma-voice
+
+  # 🔧 ox_lib (Utility Library)
+  - action: download_github
+    src: https://github.com/overextended/ox_lib
+    ref: main
+    dest: ./resources/[dependencies]/ox_lib
+
+  # 💾 oxmysql (Database Wrapper)
+  - action: download_github
+    src: https://github.com/overextended/oxmysql
+    ref: main
+    dest: ./resources/[dependencies]/oxmysql
+
+  # 🎯 ox_target (Targeting System)
+  - action: download_github
+    src: https://github.com/overextended/ox_target
+    ref: main
+    dest: ./resources/[dependencies]/ox_target
+
+
+  ############################################################
+  # 🌀 Azure Framework Core
+  ############################################################
+
+  # 🏛️ Azure-Framework (Core)
+  - action: download_github
+    src: https://github.com/Azure-Framework/Azure-Framework
+    ref: main
+    subpath: Azure-Framework
+    dest: ./resources/
+
+
+  ############################################################
+  # ⚡ Azure Framework Resources
+  ############################################################
+
+  # 🔑 Admin System
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Admin
+    ref: main
+    dest: ./resources/[framework]/Az-Admin
+
+  # 👤 Character UI
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-CharacterUI
+    ref: main
+    dest: ./resources/[framework]/Az-CharacterUI
+
+  # 💳 Banking System
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Banking
+    ref: main
+    dest: ./resources/[framework]/Az-Banking
+
+  # 🚔 Police Menu
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-PoliceMenu
+    ref: main
+    dest: ./resources/[framework]/Az-PoliceMenu
+
+  # 📦 Amazon Job
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Amazon
+    ref: master
+    dest: ./resources/[framework]/Az-Amazon
+
+  # 📊 Job Logger
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-LogJob
+    ref: main
+    dest: ./resources/[framework]/Az-LogJob
+
+  # 🗑️ Garbage Job
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-GarbageJob
+    ref: main
+    dest: ./resources/[framework]/Az-GarbageJob
+
+  # ☕ Coffee Job
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-CoffeeJob
+    ref: main
+    dest: ./resources/[framework]/Az-CoffeeJob
+
+  # 🚚 Drug Trafficking Job
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-DrugTraffic
+    ref: main
+    dest: ./resources/[framework]/Az-DrugTraffic
+
+  # ⛓️ Jailing System
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Jailing
+    ref: main
+    dest: ./resources/[framework]/Az-Jailing
+
+  # 🚦 DMV System
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-DMV
+    ref: main
+    dest: ./resources/[framework]/Az-DMV
+
+  # 🚓 5PD Integration
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-5PD
+    ref: main
+    dest: ./resources/[framework]/Az-5PD
+
+
+  ############################################################
+  # 🗄️ Database Setup & Cleanup
+  ############################################################
+
+  # 🔗 Connect Database
+  - action: connect_database
+
+  # 🧹 Cleanup Temporary Files
+  - action: remove_path
+    path: ./tmp
