@@ -12,11 +12,13 @@ tasks:
   ############################################################
 
   # 🌐 Default CFX Resources
+  # Download default CFX resources
   - action: download_github
     src: https://github.com/citizenfx/cfx-server-data
     ref: master
     subpath: resources
     dest: ./resources/[default]
+
 
   # 🎤 pma-voice (Voice System)
   - action: download_github
@@ -24,23 +26,29 @@ tasks:
     ref: main
     dest: ./resources/[dependencies]/pma-voice
 
-  # 🔧 ox_lib (Utility Library)
-  - action: download_github
-    src: https://github.com/overextended/ox_lib
-    ref: main
-    dest: ./resources/[dependencies]/ox_lib
+  # Download ox_lib
+  - action: download_file
+    url: https://github.com/overextended/ox_lib/releases/latest/download/ox_lib.zip
+    path: ./tmp/ox_lib.zip
+  - action: unzip
+    src: ./tmp/ox_lib.zip
+    dest: ./resources/[dependencies]
 
-  # 💾 oxmysql (Database Wrapper)
-  - action: download_github
-    src: https://github.com/overextended/oxmysql
-    ref: main
-    dest: ./resources/[dependencies]/oxmysql
+  # Download oxmysql
+  - action: download_file
+    url: https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip
+    path: ./tmp/oxmysql.zip
+  - action: unzip
+    src: ./tmp/oxmysql.zip
+    dest: ./resources/[dependencies]
 
-  # 🎯 ox_target (Targeting System)
-  - action: download_github
-    src: https://github.com/overextended/ox_target
-    ref: main
-    dest: ./resources/[dependencies]/ox_target
+  # Download ox_target
+  - action: download_file
+    url: https://github.com/overextended/ox_target/releases/latest/download/ox_target.zip
+    path: ./tmp/ox_target.zip
+  - action: unzip
+    src: ./tmp/ox_target.zip
+    dest: ./resources/[dependencies]
 
 
   ############################################################
