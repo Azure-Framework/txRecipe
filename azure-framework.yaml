@@ -1,6 +1,6 @@
 $engine: 3
 $onesync: on
-name: Az Framework 20
+name: Az Framework 2.0
 version: 2.0.0
 author: Az
 description: Az-Framework 2.0 FiveM base with core modules, bridges, public resources, ox support, and AMenu compatibility.
@@ -45,10 +45,16 @@ tasks:
     src: ./tmp/files/ox_target.zip
     dest: ./resources/[standalone]
   - action: download_file
-    url: https://github.com/overextended/ox_inventory/releases/latest/download/ox_inventory.zip
-    path: ./tmp/files/ox_inventory.zip
+    url: https://github.com/Azure-Framework/txRecipe/raw/main/assets/ox_inventory-az.zip
+    path: ./tmp/files/ox_inventory-az.zip
   - action: unzip
-    src: ./tmp/files/ox_inventory.zip
+    src: ./tmp/files/ox_inventory-az.zip
+    dest: ./resources/[standalone]
+  - action: download_file
+    url: https://github.com/Azure-Framework/txRecipe/raw/main/assets/ox_inventory_restart_helper.zip
+    path: ./tmp/files/ox_inventory_restart_helper.zip
+  - action: unzip
+    src: ./tmp/files/ox_inventory_restart_helper.zip
     dest: ./resources/[standalone]
   - action: download_github
     src: https://github.com/pedr0fontoura/fivem-appearance
@@ -74,10 +80,6 @@ tasks:
     src: https://github.com/Azure-Framework/Az-Framework
     ref: main
     dest: ./resources/[azure]/Az-Framework
-  - action: move_path
-    src: ./resources/[azure]/Az-Framework/ox_inventory_bridge/az
-    dest: ./resources/[standalone]/ox_inventory/modules/bridge/az
-    overwrite: true
   - action: download_github
     src: https://github.com/Azure-Framework/Az-MDT
     ref: main
@@ -336,9 +338,11 @@ tasks:
       set steam_webApiKey "none"
       set mysql_connection_string "{{dbConnectionString}}"
       set DISCORD_BOT_TOKEN ""
-      set DISCORD_WEBHOOK_URL ""
       set DISCORD_GUILD_ID ""
-      set resources_useSystemChat true
+      set DISCORD_WEBHOOK_URL ""
+      set AZ_ADMIN_ROLE_IDS ""
+      set AZ_STAFF_ROLE_IDS ""
+      set resources_useSystemChat false
       setr qb_locale "en"
       setr inventory:framework "az"
       setr inventory:accounts ["money"]
@@ -361,6 +365,9 @@ tasks:
       setr inventory:suppresspickups 0
       set inventory:versioncheck true
       set inventory:loglevel 1
+      setr inventory:oxconfig_ace "ox_inventory.oxconfig"
+      setr inventory:oxconfig_max_config_kb 2048
+      setr inventory:oxconfig_max_image_kb 2048
       setr amenu_use_permissions true
       setr amenu_menu_staff_only false
       setr amenu_menu_toggle_key "M"
@@ -374,6 +381,8 @@ tasks:
       add_ace group.admin command.oxconfig allow
       add_ace group.admin command.oxconfigrestart allow
       add_ace resource.ox_inventory command.restart allow
+      add_ace resource.ox_inventory_restart_helper command.restart allow
+      add_ace group.admin azframework.setup allow
       add_ace group.admin azadmin.use allow
       add_ace group.admin az_mdt.open allow
       add_ace group.admin az_mdt.admin allow
@@ -385,6 +394,7 @@ tasks:
       add_ace group.admin "AMenu.Framework.Menu" allow
       add_ace group.admin "AMenu.AzFramework.Admin" allow
       add_ace group.admin "AMenu.Staff" allow
+      exec resources/[standalone]/AMenu/config/permissions.cfg
       ensure mapmanager
       ensure spawnmanager
       ensure sessionmanager
@@ -392,7 +402,6 @@ tasks:
       ensure hardcap
       ensure rconlog
       ensure baseevents
-      ensure chat
       ensure oxmysql
       ensure ox_lib
       ensure ox_target
@@ -409,6 +418,7 @@ tasks:
       ensure AMenu-Bridge
       ensure AMenu
       ensure ox_inventory
+      ensure ox_inventory_restart_helper
       ensure Az-MDT
       ensure Az-5PD
       ensure Az-Ambulance
