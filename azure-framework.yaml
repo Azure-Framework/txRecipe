@@ -1,0 +1,302 @@
+$engine: 3
+$onesync: on
+name: Az-Framework 2.0
+version: 2.0.0
+author: Az
+description: Az-Framework 2.0 FiveM base with core modules, bridges, public resources, ox support, and vMenu compatibility.
+
+tasks:
+  - action: connect_database
+  - action: download_github
+    src: https://github.com/citizenfx/cfx-server-data
+    ref: master
+    subpath: resources
+    dest: ./resources/[cfx-default]
+  - action: remove_path
+    path: ./resources/[cfx-default]/[gameplay]/chat
+  - action: ensure_dir
+    path: ./resources/[standalone]
+  - action: ensure_dir
+    path: ./resources/[azure]
+  - action: ensure_dir
+    path: ./resources/[voice]
+  - action: ensure_dir
+    path: ./resources/[local]
+  - action: ensure_dir
+    path: ./tmp/files
+  - action: download_file
+    url: https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip
+    path: ./tmp/files/oxmysql.zip
+  - action: unzip
+    src: ./tmp/files/oxmysql.zip
+    dest: ./resources/[standalone]
+  - action: download_file
+    url: https://github.com/overextended/ox_lib/releases/latest/download/ox_lib.zip
+    path: ./tmp/files/ox_lib.zip
+  - action: unzip
+    src: ./tmp/files/ox_lib.zip
+    dest: ./resources/[standalone]
+  - action: download_file
+    url: https://github.com/overextended/ox_target/releases/latest/download/ox_target.zip
+    path: ./tmp/files/ox_target.zip
+  - action: unzip
+    src: ./tmp/files/ox_target.zip
+    dest: ./resources/[standalone]
+  - action: download_file
+    url: https://github.com/overextended/ox_inventory/releases/latest/download/ox_inventory.zip
+    path: ./tmp/files/ox_inventory.zip
+  - action: unzip
+    src: ./tmp/files/ox_inventory.zip
+    dest: ./resources/[standalone]
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-target
+    ref: main
+    dest: ./resources/[standalone]/qb-target
+  - action: download_github
+    src: https://github.com/citizenfx/screenshot-basic
+    ref: main
+    dest: ./resources/[standalone]/screenshot-basic
+  - action: download_github
+    src: https://github.com/BaziForYou/MugShotBase64
+    ref: main
+    dest: ./resources/[standalone]/MugShotBase64
+  - action: download_github
+    src: https://github.com/Gl1tchStudios/glitch-minigames
+    ref: main
+    dest: ./resources/[standalone]/glitch-minigames
+  - action: download_github
+    src: https://github.com/AvarianKnight/pma-voice
+    ref: main
+    dest: ./resources/[voice]/pma-voice
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Framework
+    ref: main
+    dest: ./resources/[azure]/Az-Framework
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-MDT
+    ref: main
+    dest: ./resources/[azure]/Az-MDT
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-5PD
+    ref: main
+    dest: ./resources/[azure]/Az-5PD
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Ambulance
+    ref: main
+    dest: ./resources/[azure]/Az-Ambulance
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Fire
+    ref: main
+    dest: ./resources/[azure]/Az-Fire
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Hunting
+    ref: main
+    dest: ./resources/[azure]/Az-Hunting
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Fishing
+    ref: main
+    dest: ./resources/[azure]/Az-Fishing
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-JobCenter
+    ref: main
+    dest: ./resources/[azure]/Az-JobCenter
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-JobGarages
+    ref: main
+    dest: ./resources/[azure]/Az-JobGarages
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Marketplace
+    ref: main
+    dest: ./resources/[azure]/Az-Marketplace
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Dealership
+    ref: main
+    dest: ./resources/[azure]/Az-Dealership
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-TowJob
+    ref: main
+    dest: ./resources/[azure]/Az-TowJob
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-GoPostal
+    ref: main
+    dest: ./resources/[azure]/Az-GoPostal
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-GarbageJob
+    ref: main
+    dest: ./resources/[azure]/Az-GarbageJob
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Miner
+    ref: main
+    dest: ./resources/[azure]/Az-Miner
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-CoffeeJob
+    ref: main
+    dest: ./resources/[azure]/Az-CoffeeJob
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-WeatherSystem
+    ref: main
+    dest: ./resources/[azure]/Az-WeatherSystem
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Levels
+    ref: main
+    dest: ./resources/[azure]/Az-Levels
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-ConfigManager
+    ref: main
+    dest: ./resources/[azure]/Az-ConfigManager
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Loading
+    ref: main
+    dest: ./resources/[azure]/Az-Loading
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Opticom
+    ref: main
+    dest: ./resources/[azure]/Az-Opticom
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-TacLights
+    ref: main
+    dest: ./resources/[azure]/Az-TacLights
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-PedRob
+    ref: main
+    dest: ./resources/[azure]/Az-PedRob
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-ChopShop
+    ref: main
+    dest: ./resources/[azure]/Az-ChopShop
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-DrugTraffic
+    ref: main
+    dest: ./resources/[azure]/Az-DrugTraffic
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Moneytruck
+    ref: main
+    dest: ./resources/[azure]/Az-Moneytruck
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Luckywheel
+    ref: main
+    dest: ./resources/[azure]/Az-Luckywheel
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-FishFinder
+    ref: main
+    dest: ./resources/[azure]/Az-FishFinder
+  - action: download_file
+    url: https://github.com/TomGrobbe/vMenu/releases/latest/download/vMenu.zip
+    path: ./tmp/files/vMenu.zip
+  - action: unzip
+    src: ./tmp/files/vMenu.zip
+    dest: ./resources/[standalone]/vMenu
+  - action: query_database
+    file: ./resources/[azure]/Az-Framework/import.sql
+  - action: write_file
+    file: ./server.cfg
+    data: |
+      {{serverEndpoints}}
+      sv_scriptHookAllowed 0
+      sv_maxclients {{maxClients}}
+      sv_enforceGameBuild 3570
+      set onesync on
+      sets locale "en-US"
+      sets tags "roleplay, az-framework, vmenu, public, leo, civilian, jobs, economy, lore-friendly, new-player-friendly"
+      sets Framework "Az-Framework"
+      sets framework "Az-Framework"
+      sv_hostname "{{serverName}} | Az-Framework 2.0"
+      sets sv_projectName "{{serverName}}"
+      sets sv_projectDesc "Az-Framework 2.0 server base with core modules, bridges, inventory support, public-safety resources, jobs, and vMenu compatibility."
+      sv_endpointPrivacy true
+      sv_licenseKey "{{svLicense}}"
+      set steam_webApiKey "none"
+      set mysql_connection_string "{{dbConnectionString}}"
+      set DISCORD_BOT_TOKEN ""
+      set DISCORD_WEBHOOK_URL ""
+      set DISCORD_GUILD_ID ""
+      set resources_useSystemChat true
+      setr qb_locale "en"
+      setr inventory:framework "az"
+      setr inventory:accounts ["money"]
+      setr inventory:azframeworkmoney 1
+      setr inventory:azdebug 0
+      setr inventory:keys ["F2", "K", "TAB"]
+      setr inventory:slots 50
+      setr inventory:weight 30000
+      setr inventory:dropslots 50
+      setr inventory:dropweight 30000
+      setr inventory:imagepath "nui://ox_inventory/web/images"
+      setr inventory:target true
+      setr inventory:nativeweaponwheel 1
+      setr inventory:weaponwheel 1
+      setr inventory:disableweaponitems 1
+      setr inventory:disableweapons 1
+      setr inventory:weaponmismatch false
+      setr inventory:weaponanims false
+      setr inventory:weaponnotify false
+      setr inventory:suppresspickups 0
+      set inventory:versioncheck true
+      set inventory:loglevel 1
+      setr vmenu_qbcore_bridge_enable 0
+      setr vmenu_az_bridge_enable 1
+      setr fivem-appearance:customization 1
+      add_ace group.admin command allow
+      add_ace group.admin command.quit deny
+      {{addPrincipalsMaster}}
+      add_ace group.admin ox_inventory.oxconfig allow
+      add_ace group.admin command.oxconfig allow
+      add_ace group.admin command.oxconfigrestart allow
+      add_ace resource.ox_inventory command.restart allow
+      add_ace group.admin azadmin.use allow
+      add_ace group.admin az_mdt.open allow
+      add_ace group.admin az_mdt.admin allow
+      add_ace group.admin az_mdt.civ allow
+      add_ace group.admin az_mdt.dmv allow
+      add_ace group.admin az_mdt.leochat allow
+      add_ace group.admin az_mdt.supervisor allow
+      exec @vMenu/config/permissions.cfg
+      ensure mapmanager
+      ensure spawnmanager
+      ensure sessionmanager
+      ensure basic-gamemode
+      ensure hardcap
+      ensure rconlog
+      ensure baseevents
+      ensure oxmysql
+      ensure ox_lib
+      ensure ox_target
+      ensure qb-target
+      ensure screenshot-basic
+      ensure MugShotBase64
+      ensure glitch-minigames
+      ensure pma-voice
+      ensure Az-Framework
+      ensure vMenu
+      ensure ox_inventory
+      ensure Az-MDT
+      ensure Az-5PD
+      ensure Az-Ambulance
+      ensure Az-Fire
+      ensure Az-Hunting
+      ensure Az-Fishing
+      ensure Az-FishFinder
+      ensure Az-JobCenter
+      ensure Az-JobGarages
+      ensure Az-Marketplace
+      ensure Az-Dealership
+      ensure Az-TowJob
+      ensure Az-GoPostal
+      ensure Az-GarbageJob
+      ensure Az-Miner
+      ensure Az-CoffeeJob
+      ensure Az-WeatherSystem
+      ensure Az-Levels
+      ensure Az-ConfigManager
+      ensure Az-Loading
+      ensure Az-Opticom
+      ensure Az-TacLights
+      ensure Az-PedRob
+      ensure Az-ChopShop
+      ensure Az-DrugTraffic
+      ensure Az-Moneytruck
+      ensure Az-Luckywheel
+      stop Az-FirstJoin
+      
+  - action: remove_path
+    path: ./tmp

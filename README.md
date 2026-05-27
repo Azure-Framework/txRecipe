@@ -1,83 +1,33 @@
-# 📥 Azure‑Framework Full Suite txAdmin Recipe
+# Az-Framework 2.0 txAdmin Recipe
 
-Deploy a complete **Azure‑Framework** server stack using txAdmin in under 60 seconds!  
-This recipe includes 📦 **oxmysql**, **ox_lib**, all Azure modules, OneSync, and a fully themed `server.cfg` with ASCII art and Discord link.
+This recipe deploys an Az-Framework 2.0 FiveM base with the core framework, merged framework modules, bridge-ready inventory settings, vMenu compatibility, and the current public Az resource pack.
 
----
+## Files
 
-## 🧩 What’s Included
+- `azure-framework.yaml`: txAdmin recipe.
+- `server.cfg`: the matching runtime config written by the recipe.
+- `VALIDATION.txt`: recipe validation result.
 
-- **oxmysql** (v2.13.0) – MySQL integration  
-- **ox_lib** (v3.30.6) – Shared libraries  
-- **Azure‑Framework** core + modules:
-  - Az‑Banking, Az‑Admin, Az‑Levels, Az‑PoliceMenu  
-  - Az‑Jailing, Az‑CoffeeJob, Az‑DrugTraffic  
-  - Az‑GarbageJob, Az‑LogJob, Az‑Amazon  
-- **OneSync** enabled  
-- **Themed server.cfg** with ASCII header & Discord banner
+## Installs
 
----
+- CFX default resources without default chat.
+- `oxmysql`, `ox_lib`, `ox_target`, and `ox_inventory`.
+- `qb-target`, `screenshot-basic`, `MugShotBase64`, `glitch-minigames`, `pma-voice`, and `vMenu`.
+- `Az-Framework` with merged chat, banking, character UI, DMV, fuel, ID, daily rewards, death, insurance, housing, and Mors delivery modules.
+- Public standalone Az resources that remain outside the framework core.
 
-## 🚀 Requirements
+## Merged Resources
 
-- txAdmin (bundled with FXServer ≥ 2524)  
-- MySQL server (local or remote) — recipe will auto-import schema  
-- Discord server (optional, for community link)
+Do not install the old standalone `AChat`, `Az-Banking`, `Az-CharacterUI`, `Az-Dailyrewards`, `Az-Death`, `Az-DMV`, `Az-Fuel`, `Az-Id`, or `Az-MoresDelivery` repos with this recipe. Their runtime now comes from `Az-Framework`.
 
----
+## Install
 
-## 🛠️ Setup Instructions
+1. Host `azure-framework.yaml` from the `Azure-Framework/txRecipe` repository or paste the raw recipe URL into txAdmin.
+2. Start a fresh txAdmin deployment.
+3. Enter the server name, license key, and database details.
+4. Run the recipe.
+5. Add Discord bot/webhook values, local assets, maps, vehicles, weapons, and private admin identifiers after deployment.
 
-1. Copy the recipe YAML (e.g. `azure-main.ymal`).  
-2. Paste into txAdmin’s **Custom Template** field.  
-3. Provide your MySQL credentials when prompted.  
-4. Proceed to **Run Recipe** – txAdmin handles downloading files, importing DB schema, and generating `server.cfg`.  
-5. Start your server – you'll see the ASCII banner and Discord link on connect.
+## Security
 
----
-
-## 📝 What the Recipe Does
-
-- Downloads & extracts **oxmysql** and **ox_lib** first.  
-- Fetches Azure framework and modules into `resources/[framework]/...`.  
-- **Automatically imports** the MySQL schema into your database—no manual `.sql` handling needed.  
-- Generates a `server.cfg` featuring:
-  - ASCII‑art header
-  - Network & license setup
-  - Admin permissions linked to txAdmin
-  - Proper startup order
-  - `sv_banner` with your Discord link
-
----
-
-## 🎯 Customization Tips
-
-- Update `ref:` tags to lock resource versions.  
-- Adjust ASCII art or `sv_banner` as you like.  
-- Add more GitHub resources and `start` lines for extra modules.  
-- For complex setups, insert advanced DB logic before the `database:` section.
-
----
-
-## 📘 Troubleshooting
-
-- If schema import fails, confirm MySQL credentials and access rights.  
-- Modules not starting? Double-check module names in recipes and `server.cfg`.  
-- Banner not showing? Verify the Discord invite and server output for clues.
-
----
-
-## 💬 Get Support
-
-Need help or want to chat?  
-**Join Discord:** https://discord.gg/tBg2U6CTHE
-
----
-
-## ✅ License
-
-Apache‑2.0 (or MIT/GPL‑compatible) — ensure all Azure modules remain open-source.
-
----
-
-Thanks for using this recipe—here's to powerful, auto-deploying Azure‑Framework servers! 🎉
+The recipe does not contain live Cfx license keys, database credentials, Discord bot tokens, webhooks, or personal admin identifiers.
