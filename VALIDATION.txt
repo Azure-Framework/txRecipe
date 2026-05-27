@@ -1,1 +1,1 @@
-Recipe structure validated for bridge download, move_path runtime renaming, database-safe txAdmin deployment naming, GitHub branch refs, screenshot-basic ZIP install, MugShotBase64 folder repair, ox_inventory Az bridge install, and AMenu/AMenu-Bridge deployment.
+Recipe structure validated for bridge download, move_path runtime renaming, database-safe txAdmin deployment naming, GitHub branch refs, MugShotBase64 folder repair, ox_inventory Az bridge install, and AMenu/AMenu-Bridge deployment.

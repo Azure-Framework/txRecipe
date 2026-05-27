@@ -52,16 +52,6 @@ tasks:
   - action: unzip
     src: ./tmp/files/ox_inventory.zip
     dest: ./resources/[standalone]
-  - action: download_file
-    url: https://github.com/citizenfx/screenshot-basic/archive/refs/heads/master.zip
-    path: ./tmp/files/screenshot-basic.zip
-  - action: unzip
-    src: ./tmp/files/screenshot-basic.zip
-    dest: ./tmp/files
-  - action: move_path
-    src: ./tmp/files/screenshot-basic-master
-    dest: ./resources/[standalone]/screenshot-basic
-    overwrite: true
   - action: download_github
     src: https://github.com/BaziForYou/MugShotBase64
     ref: main
@@ -400,8 +390,6 @@ tasks:
       ensure hardcap
       ensure rconlog
       ensure baseevents
-      ensure yarn
-      ensure webpack
       ensure oxmysql
       ensure ox_lib
       ensure ox_target
@@ -463,7 +451,6 @@ tasks:
       ensure Az-FraudOps
       ensure Az-StreetRacing2
       ensure Az-BlackMarketBeach
-      ensure screenshot-basic
       
   - action: remove_path
     path: ./tmp
