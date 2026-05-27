@@ -1,1 +1,1 @@
-Recipe structure validated. PyYAML is not installed in this workspace.
+Recipe structure validated for Az-Framework 2.0 bridges and Summer resources.

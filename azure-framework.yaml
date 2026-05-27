@@ -21,6 +21,8 @@ tasks:
   - action: ensure_dir
     path: ./resources/[voice]
   - action: ensure_dir
+    path: ./resources/[bridges]
+  - action: ensure_dir
     path: ./resources/[local]
   - action: ensure_dir
     path: ./tmp/files
@@ -49,10 +51,6 @@ tasks:
     src: ./tmp/files/ox_inventory.zip
     dest: ./resources/[standalone]
   - action: download_github
-    src: https://github.com/qbcore-framework/qb-target
-    ref: main
-    dest: ./resources/[standalone]/qb-target
-  - action: download_github
     src: https://github.com/citizenfx/screenshot-basic
     ref: main
     dest: ./resources/[standalone]/screenshot-basic
@@ -72,6 +70,26 @@ tasks:
     src: https://github.com/Azure-Framework/Az-Framework
     ref: main
     dest: ./resources/[azure]/Az-Framework
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-QBCore-Bridge
+    ref: main
+    dest: ./resources/[bridges]/qb-core
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-QBInventory-Bridge
+    ref: main
+    dest: ./resources/[bridges]/qb-inventory
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-QBTarget-Bridge
+    ref: main
+    dest: ./resources/[bridges]/qb-target
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-ESX-Bridge
+    ref: main
+    dest: ./resources/[bridges]/es_extended
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-NDCore-Bridge
+    ref: main
+    dest: ./resources/[bridges]/ND_Core
   - action: download_github
     src: https://github.com/Azure-Framework/Az-MDT
     ref: main
@@ -180,6 +198,82 @@ tasks:
     src: https://github.com/Azure-Framework/Az-FishFinder
     ref: main
     dest: ./resources/[azure]/Az-FishFinder
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Summer2Core
+    ref: main
+    dest: ./resources/[azure]/Az-Summer2Core
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Lifeguard
+    ref: main
+    dest: ./resources/[azure]/Az-Lifeguard
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Marina
+    ref: main
+    dest: ./resources/[azure]/Az-Marina
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-IceCream
+    ref: main
+    dest: ./resources/[azure]/Az-IceCream
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Camping
+    ref: main
+    dest: ./resources/[azure]/Az-Camping
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-ParkEvents
+    ref: main
+    dest: ./resources/[azure]/Az-ParkEvents
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-ResortStaff
+    ref: main
+    dest: ./resources/[azure]/Az-ResortStaff
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-FoodFestival
+    ref: main
+    dest: ./resources/[azure]/Az-FoodFestival
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Fishing2
+    ref: main
+    dest: ./resources/[azure]/Az-Fishing2
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-SmugglingRun
+    ref: main
+    dest: ./resources/[azure]/Az-SmugglingRun
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Boosting2
+    ref: main
+    dest: ./resources/[azure]/Az-Boosting2
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Burglary2
+    ref: main
+    dest: ./resources/[azure]/Az-Burglary2
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-DrugLabs2
+    ref: main
+    dest: ./resources/[azure]/Az-DrugLabs2
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-IllegalFishing
+    ref: main
+    dest: ./resources/[azure]/Az-IllegalFishing
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-Poaching
+    ref: main
+    dest: ./resources/[azure]/Az-Poaching
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-ScrapTheft
+    ref: main
+    dest: ./resources/[azure]/Az-ScrapTheft
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-FraudOps
+    ref: main
+    dest: ./resources/[azure]/Az-FraudOps
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-StreetRacing2
+    ref: main
+    dest: ./resources/[azure]/Az-StreetRacing2
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-BlackMarketBeach
+    ref: main
+    dest: ./resources/[azure]/Az-BlackMarketBeach
   - action: download_file
     url: https://github.com/TomGrobbe/vMenu/releases/latest/download/vMenu.zip
     path: ./tmp/files/vMenu.zip
@@ -261,12 +355,16 @@ tasks:
       ensure oxmysql
       ensure ox_lib
       ensure ox_target
-      ensure qb-target
       ensure screenshot-basic
       ensure MugShotBase64
       ensure glitch-minigames
       ensure pma-voice
       ensure Az-Framework
+      ensure qb-core
+      ensure qb-inventory
+      ensure qb-target
+      ensure es_extended
+      ensure ND_Core
       ensure vMenu
       ensure ox_inventory
       ensure Az-MDT
@@ -296,6 +394,25 @@ tasks:
       ensure Az-DrugTraffic
       ensure Az-Moneytruck
       ensure Az-Luckywheel
+      ensure Az-Summer2Core
+      ensure Az-Lifeguard
+      ensure Az-Marina
+      ensure Az-IceCream
+      ensure Az-Camping
+      ensure Az-ParkEvents
+      ensure Az-ResortStaff
+      ensure Az-FoodFestival
+      ensure Az-Fishing2
+      ensure Az-SmugglingRun
+      ensure Az-Boosting2
+      ensure Az-Burglary2
+      ensure Az-DrugLabs2
+      ensure Az-IllegalFishing
+      ensure Az-Poaching
+      ensure Az-ScrapTheft
+      ensure Az-FraudOps
+      ensure Az-StreetRacing2
+      ensure Az-BlackMarketBeach
       stop Az-FirstJoin
       
   - action: remove_path
