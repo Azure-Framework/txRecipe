@@ -26,6 +26,8 @@ tasks:
     path: ./resources/[local]
   - action: ensure_dir
     path: ./tmp/files
+  - action: ensure_dir
+    path: ./tmp/bridges
   - action: download_file
     url: https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip
     path: ./tmp/files/oxmysql.zip
@@ -70,26 +72,6 @@ tasks:
     src: https://github.com/Azure-Framework/Az-Framework
     ref: main
     dest: ./resources/[azure]/Az-Framework
-  - action: download_github
-    src: https://github.com/Azure-Framework/Az-QBCore-Bridge
-    ref: main
-    dest: ./resources/[bridges]/qb-core
-  - action: download_github
-    src: https://github.com/Azure-Framework/Az-QBInventory-Bridge
-    ref: main
-    dest: ./resources/[bridges]/qb-inventory
-  - action: download_github
-    src: https://github.com/Azure-Framework/Az-QBTarget-Bridge
-    ref: main
-    dest: ./resources/[bridges]/qb-target
-  - action: download_github
-    src: https://github.com/Azure-Framework/Az-ESX-Bridge
-    ref: main
-    dest: ./resources/[bridges]/es_extended
-  - action: download_github
-    src: https://github.com/Azure-Framework/Az-NDCore-Bridge
-    ref: main
-    dest: ./resources/[bridges]/ND_Core
   - action: download_github
     src: https://github.com/Azure-Framework/Az-MDT
     ref: main
@@ -274,6 +256,46 @@ tasks:
     src: https://github.com/Azure-Framework/Az-BlackMarketBeach
     ref: main
     dest: ./resources/[azure]/Az-BlackMarketBeach
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-QBCore-Bridge
+    ref: main
+    dest: ./tmp/bridges/Az-QBCore-Bridge
+  - action: move_path
+    src: ./tmp/bridges/Az-QBCore-Bridge
+    dest: ./resources/[bridges]/qb-core
+    overwrite: true
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-QBInventory-Bridge
+    ref: main
+    dest: ./tmp/bridges/Az-QBInventory-Bridge
+  - action: move_path
+    src: ./tmp/bridges/Az-QBInventory-Bridge
+    dest: ./resources/[bridges]/qb-inventory
+    overwrite: true
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-QBTarget-Bridge
+    ref: main
+    dest: ./tmp/bridges/Az-QBTarget-Bridge
+  - action: move_path
+    src: ./tmp/bridges/Az-QBTarget-Bridge
+    dest: ./resources/[bridges]/qb-target
+    overwrite: true
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-ESX-Bridge
+    ref: main
+    dest: ./tmp/bridges/Az-ESX-Bridge
+  - action: move_path
+    src: ./tmp/bridges/Az-ESX-Bridge
+    dest: ./resources/[bridges]/es_extended
+    overwrite: true
+  - action: download_github
+    src: https://github.com/Azure-Framework/Az-NDCore-Bridge
+    ref: main
+    dest: ./tmp/bridges/Az-NDCore-Bridge
+  - action: move_path
+    src: ./tmp/bridges/Az-NDCore-Bridge
+    dest: ./resources/[bridges]/ND_Core
+    overwrite: true
   - action: download_file
     url: https://github.com/TomGrobbe/vMenu/releases/latest/download/vMenu.zip
     path: ./tmp/files/vMenu.zip

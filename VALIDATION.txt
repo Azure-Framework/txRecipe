@@ -1,1 +1,1 @@
-Recipe structure validated for Az-Framework 2.0 bridges and Summer resources.
+Recipe structure validated for bridge download and move_path runtime renaming.
