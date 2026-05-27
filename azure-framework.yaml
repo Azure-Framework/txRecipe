@@ -1,6 +1,6 @@
 $engine: 3
 $onesync: on
-name: Az-Framework 2.0
+name: Az Framework 20
 version: 2.0.0
 author: Az
 description: Az-Framework 2.0 FiveM base with core modules, bridges, public resources, ox support, and vMenu compatibility.

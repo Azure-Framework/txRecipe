@@ -30,6 +30,20 @@ Do not install the old standalone `AChat`, `Az-Banking`, `Az-CharacterUI`, `Az-D
 4. Run the recipe.
 5. Add Discord bot/webhook values, local assets, maps, vehicles, weapons, and private admin identifiers after deployment.
 
+## Database Compatibility
+
+The recipe uses txAdmin's `connect_database` and `query_database` actions, then writes the generated `{{dbConnectionString}}` into `server.cfg` for `oxmysql`.
+
+Supported database targets are the same style txAdmin and `oxmysql` expect:
+
+- Local or remote MariaDB.
+- Local or remote MySQL.
+- Hosted databases from txAdmin-compatible FiveM hosts.
+
+For best compatibility, keep the database name to letters, numbers, and underscores only. The recipe name is intentionally `Az Framework 20` so txAdmin generates a safe default database name such as `AzFramework20_168A81` instead of a name with punctuation.
+
+Avoid database names like `Az-Framework2.0_168A81`; some MariaDB/MySQL parser paths treat the dot as a database/table separator during the txAdmin `connect_database` step.
+
 ## Security
 
 The recipe does not contain live Cfx license keys, database credentials, Discord bot tokens, webhooks, or personal admin identifiers.

@@ -1,1 +1,1 @@
-Recipe structure validated for bridge download and move_path runtime renaming.
+Recipe structure validated for bridge download, move_path runtime renaming, and database-safe txAdmin deployment naming.
