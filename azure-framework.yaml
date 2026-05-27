@@ -54,7 +54,7 @@ tasks:
     dest: ./resources/[standalone]
   - action: download_github
     src: https://github.com/citizenfx/screenshot-basic
-    ref: main
+    ref: master
     dest: ./resources/[standalone]/screenshot-basic
   - action: download_github
     src: https://github.com/BaziForYou/MugShotBase64
