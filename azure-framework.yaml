@@ -3,7 +3,7 @@ $onesync: on
 name: Az Framework 20
 version: 2.0.0
 author: Az
-description: Az-Framework 2.0 FiveM base with core modules, bridges, public resources, ox support, and vMenu compatibility.
+description: Az-Framework 2.0 FiveM base with core modules, bridges, public resources, ox support, and AMenu compatibility.
 
 tasks:
   - action: connect_database
@@ -302,12 +302,18 @@ tasks:
     src: ./tmp/bridges/Az-NDCore-Bridge
     dest: ./resources/[bridges]/ND_Core
     overwrite: true
-  - action: download_file
-    url: https://github.com/TomGrobbe/vMenu/releases/latest/download/vMenu.zip
-    path: ./tmp/files/vMenu.zip
-  - action: unzip
-    src: ./tmp/files/vMenu.zip
-    dest: ./resources/[standalone]/vMenu
+  - action: download_github
+    src: https://github.com/Azure-Framework/AMenu
+    ref: main
+    dest: ./tmp/files/AMenu
+  - action: move_path
+    src: ./tmp/files/AMenu/AMenu
+    dest: ./resources/[standalone]/AMenu
+    overwrite: true
+  - action: move_path
+    src: ./tmp/files/AMenu/AMenu-Bridge
+    dest: ./resources/[standalone]/AMenu-Bridge
+    overwrite: true
   - action: query_database
     file: ./resources/[azure]/Az-Framework/import.sql
   - action: write_file
@@ -319,12 +325,12 @@ tasks:
       sv_enforceGameBuild 3570
       set onesync on
       sets locale "en-US"
-      sets tags "roleplay, az-framework, vmenu, public, leo, civilian, jobs, economy, lore-friendly, new-player-friendly"
+      sets tags "roleplay, az-framework, amenu, public, leo, civilian, jobs, economy, lore-friendly, new-player-friendly"
       sets Framework "Az-Framework"
       sets framework "Az-Framework"
       sv_hostname "{{serverName}} | Az-Framework 2.0"
       sets sv_projectName "{{serverName}}"
-      sets sv_projectDesc "Az-Framework 2.0 server base with core modules, bridges, inventory support, public-safety resources, jobs, and vMenu compatibility."
+      sets sv_projectDesc "Az-Framework 2.0 server base with core modules, bridges, inventory support, public-safety resources, jobs, and AMenu compatibility."
       sv_endpointPrivacy true
       sv_licenseKey "{{svLicense}}"
       set steam_webApiKey "none"
@@ -355,8 +361,11 @@ tasks:
       setr inventory:suppresspickups 0
       set inventory:versioncheck true
       set inventory:loglevel 1
-      setr vmenu_qbcore_bridge_enable 0
-      setr vmenu_az_bridge_enable 1
+      setr amenu_use_permissions true
+      setr amenu_menu_staff_only false
+      setr amenu_menu_toggle_key "M"
+      setr amenu_noclip_toggle_key "F2"
+      setr amenu_keymapping_id "Default"
       setr fivem-appearance:customization 1
       add_ace group.admin command allow
       add_ace group.admin command.quit deny
@@ -372,7 +381,10 @@ tasks:
       add_ace group.admin az_mdt.dmv allow
       add_ace group.admin az_mdt.leochat allow
       add_ace group.admin az_mdt.supervisor allow
-      exec @vMenu/config/permissions.cfg
+      add_ace group.admin "AMenu.Framework.Admin" allow
+      add_ace group.admin "AMenu.Framework.Menu" allow
+      add_ace group.admin "AMenu.AzFramework.Admin" allow
+      add_ace group.admin "AMenu.Staff" allow
       ensure mapmanager
       ensure spawnmanager
       ensure sessionmanager
@@ -393,7 +405,8 @@ tasks:
       ensure qb-target
       ensure es_extended
       ensure ND_Core
-      ensure vMenu
+      ensure AMenu-Bridge
+      ensure AMenu
       ensure ox_inventory
       ensure Az-MDT
       ensure Az-5PD

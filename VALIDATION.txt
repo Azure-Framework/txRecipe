@@ -1,1 +1,1 @@
-Recipe structure validated for bridge download, move_path runtime renaming, database-safe txAdmin deployment naming, GitHub branch refs, and screenshot-basic ZIP install.
+Recipe structure validated for bridge download, move_path runtime renaming, database-safe txAdmin deployment naming, GitHub branch refs, screenshot-basic ZIP install, and AMenu/AMenu-Bridge deployment.
