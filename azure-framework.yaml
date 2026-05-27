@@ -12,8 +12,6 @@ tasks:
     ref: master
     subpath: resources
     dest: ./resources/[cfx-default]
-  - action: remove_path
-    path: ./resources/[cfx-default]/[gameplay]/chat
   - action: ensure_dir
     path: ./resources/[standalone]
   - action: ensure_dir
@@ -394,6 +392,7 @@ tasks:
       ensure hardcap
       ensure rconlog
       ensure baseevents
+      ensure chat
       ensure oxmysql
       ensure ox_lib
       ensure ox_target

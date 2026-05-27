@@ -10,7 +10,7 @@ This recipe deploys an Az-Framework 2.0 FiveM base with the core framework, merg
 
 ## Installs
 
-- CFX default resources without default chat.
+- CFX default resources, including default `chat` for command and message plumbing.
 - `oxmysql`, `ox_lib`, `ox_target`, `ox_inventory`, and `fivem-appearance` v1.3.1.
 - `MugShotBase64`, `glitch-minigames`, `pma-voice`, `AMenu`, and `AMenu-Bridge`.
 - `Az-Framework` with merged chat, banking, character UI, DMV, fuel, ID, daily rewards, death, insurance, housing, and Mors delivery modules.
