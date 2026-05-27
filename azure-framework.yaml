@@ -53,6 +53,10 @@ tasks:
     src: ./tmp/files/ox_inventory.zip
     dest: ./resources/[standalone]
   - action: download_github
+    src: https://github.com/pedr0fontoura/fivem-appearance
+    ref: v1.3.1
+    dest: ./resources/[standalone]/fivem-appearance
+  - action: download_github
     src: https://github.com/BaziForYou/MugShotBase64
     ref: main
     dest: ./tmp/files/MugShotBase64
@@ -393,6 +397,7 @@ tasks:
       ensure oxmysql
       ensure ox_lib
       ensure ox_target
+      ensure fivem-appearance
       ensure MugShotBase64
       ensure glitch-minigames
       ensure pma-voice

@@ -11,12 +11,13 @@ This recipe deploys an Az-Framework 2.0 FiveM base with the core framework, merg
 ## Installs
 
 - CFX default resources without default chat.
-- `oxmysql`, `ox_lib`, `ox_target`, and `ox_inventory`.
+- `oxmysql`, `ox_lib`, `ox_target`, `ox_inventory`, and `fivem-appearance` v1.3.1.
 - `MugShotBase64`, `glitch-minigames`, `pma-voice`, `AMenu`, and `AMenu-Bridge`.
 - `Az-Framework` with merged chat, banking, character UI, DMV, fuel, ID, daily rewards, death, insurance, housing, and Mors delivery modules.
 - Az bridge repos for `qb-core`, `qb-inventory`, `qb-target`, `es_extended`, and `ND_Core`.
 - Summer 2.0 resources including legal seasonal jobs, illegal seasonal contracts, and `Az-Summer2Core`.
 - Public standalone Az resources that remain outside the framework core.
+- `fivem-appearance` is installed from the v1.3.1 tag so the Az character creator can open full first-character appearance customization.
 
 ## Merged Resources
 
