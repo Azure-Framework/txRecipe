@@ -50,12 +50,10 @@ tasks:
   - action: unzip
     src: ./tmp/files/ox_inventory.zip
     dest: ./resources/[standalone]
-  - action: download_file
-    url: https://github.com/Azure-Framework/txRecipe/raw/main/assets/fivem-appearance-v1.3.1.zip
-    path: ./tmp/files/fivem-appearance-v1.3.1.zip
-  - action: unzip
-    src: ./tmp/files/fivem-appearance-v1.3.1.zip
-    dest: ./resources/[standalone]
+  - action: download_github
+    src: https://github.com/pedr0fontoura/fivem-appearance
+    ref: v1.3.1
+    dest: ./resources/[standalone]/fivem-appearance
   - action: download_github
     src: https://github.com/BaziForYou/MugShotBase64
     ref: main
