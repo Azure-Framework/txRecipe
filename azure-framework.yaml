@@ -65,7 +65,11 @@ tasks:
   - action: download_github
     src: https://github.com/BaziForYou/MugShotBase64
     ref: main
+    dest: ./tmp/files/MugShotBase64
+  - action: move_path
+    src: ./tmp/files/MugShotBase64/MugShotBase64
     dest: ./resources/[standalone]/MugShotBase64
+    overwrite: true
   - action: download_github
     src: https://github.com/Gl1tchStudios/glitch-minigames
     ref: main
@@ -78,6 +82,10 @@ tasks:
     src: https://github.com/Azure-Framework/Az-Framework
     ref: main
     dest: ./resources/[azure]/Az-Framework
+  - action: move_path
+    src: ./resources/[azure]/Az-Framework/ox_inventory_bridge/az
+    dest: ./resources/[standalone]/ox_inventory/modules/bridge/az
+    overwrite: true
   - action: download_github
     src: https://github.com/Azure-Framework/Az-MDT
     ref: main
@@ -392,10 +400,11 @@ tasks:
       ensure hardcap
       ensure rconlog
       ensure baseevents
+      ensure yarn
+      ensure webpack
       ensure oxmysql
       ensure ox_lib
       ensure ox_target
-      ensure screenshot-basic
       ensure MugShotBase64
       ensure glitch-minigames
       ensure pma-voice
@@ -454,7 +463,7 @@ tasks:
       ensure Az-FraudOps
       ensure Az-StreetRacing2
       ensure Az-BlackMarketBeach
-      stop Az-FirstJoin
+      ensure screenshot-basic
       
   - action: remove_path
     path: ./tmp
