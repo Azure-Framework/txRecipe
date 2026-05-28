@@ -52,7 +52,7 @@ tasks:
 
   # 🏛️ Azure-Framework (fetch the Azure-Framework folder directly)
   - action: download_github
-    src: https://github.com/Azure-Framework/Azure-Framework
+    src: https://github.com/Azure-Framework/Az-Framework
     ref: main
     subpath: Azure-Framework
     dest: ./resources/Azure-Framework
@@ -158,7 +158,12 @@ tasks:
     src: ./tmp/Az-5PD.zip
     dest: ./resources/[framework]/Az-5PD
 
-
+  - action: download_file
+    url: https://raw.githubusercontent.com/Azure-Framework/txRecipe/refs/heads/main/server.cfg
+    path: ./server.cfg
+  - action: download_file
+    url: https://raw.githubusercontent.com/Azure-Framework/txRecipe/refs/heads/main/resources.cfg
+    path: ./resources.cfg
   ############################################################
   # 🗄️ Database Setup & Cleanup
   ############################################################
